@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>purra — producer</title>
+  <meta name="description" content="purra — producer from poland. beats, credits and contact.">
+  <meta property="og:title" content="purra — producer">
+  <meta property="og:description" content="producer from poland. beats, credits and contact.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#e3e6eb">
+
+  <!-- Kolejne wejście w tej samej sesji: bez intro (bez mrugnięcia) -->
+  <script>try{if(sessionStorage.getItem('purra_booted'))document.documentElement.classList.add('is-quick')}catch(e){}</script>
+
+  <!-- Fonty: Archivo (logotyp / UI), IBM Plex Mono (dane) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ IKONY SVG (sprite) ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gFolder" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f6f7f9"/>
+        <stop offset="1" stop-color="#cfd5de"/>
+      </linearGradient>
+    </defs>
+
+    <!-- nawigacja (dock) -->
+    <symbol id="n-home" viewBox="0 0 20 20"><rect x="2.75" y="2.75" width="14.5" height="14.5" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 14.5V6.5h2.6a2.4 2.4 0 0 1 0 4.8H8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="n-beats" viewBox="0 0 20 20"><path d="M3.5 8.5v3M7 5.5v9M10.5 7.5v5M14 3.5v13M17 8v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="n-archive" viewBox="0 0 20 20"><path d="M2.75 5.5a1.5 1.5 0 0 1 1.5-1.5h3.6l1.8 1.8h6.1a1.5 1.5 0 0 1 1.5 1.5v7.95a1.5 1.5 0 0 1-1.5 1.5H4.25a1.5 1.5 0 0 1-1.5-1.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M2.75 8.5h14.5" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="n-about" viewBox="0 0 20 20"><circle cx="10" cy="7" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 17c.9-3.2 3.1-4.8 6-4.8s5.1 1.6 6 4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="n-contact" viewBox="0 0 20 20"><rect x="2.75" y="4.25" width="14.5" height="11.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 5.5 10 10.5l6.5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="n-links" viewBox="0 0 20 20"><path d="M8 6.2H6.4a3.6 3.6 0 1 0 0 7.2H8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 6.2h1.6a3.6 3.6 0 1 1 0 7.2H12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 10h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="n-kit" viewBox="0 0 20 20"><rect x="2.75" y="2.75" width="6.25" height="6.25" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="2.75" width="6.25" height="6.25" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2.75" y="11" width="6.25" height="6.25" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6.25" height="6.25" rx="1.6" fill="currentColor"/></symbol>
+    <symbol id="n-sound" viewBox="0 0 20 20"><path d="M3 8h3l4-3.5v11L6 12H3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 7.5a3.5 3.5 0 0 1 0 5M15.2 5.3a6.6 6.6 0 0 1 0 9.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="n-sound-off" viewBox="0 0 20 20"><path d="M3 8h3l4-3.5v11L6 12H3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 8l4 4M17 8l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+
+    <symbol id="i-folder" viewBox="0 0 48 40">
+      <path d="M3 8a3 3 0 0 1 3-3h11l4 4h21a3 3 0 0 1 3 3v3H3z" fill="#9aa4b4"/>
+      <path d="M3 13h42v20a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="url(#gFolder)" stroke="#0e1116" stroke-opacity=".28"/>
+      <path d="M4 14h40" stroke="#fff" stroke-opacity=".9"/>
+    </symbol>
+    <symbol id="i-file" viewBox="0 0 24 24">
+      <path d="M5 2.5h9.5L19 7v14.5H5z" fill="#fff" stroke="#0e1116" stroke-opacity=".35"/>
+      <path d="M14.5 2.5V7H19" fill="#dfe3ea" stroke="#0e1116" stroke-opacity=".35"/>
+      <path d="M8 12v5M10.5 10v7M13 13v4M15.5 11.5v5.5" stroke="#0e1116" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- UI glyphs -->
+    <symbol id="g-play" viewBox="0 0 16 16"><path d="M4 2v12l10-6z" fill="currentColor"/></symbol>
+    <symbol id="g-pause" viewBox="0 0 16 16"><rect x="3" y="2" width="3.6" height="12" rx="1" fill="currentColor"/><rect x="9.4" y="2" width="3.6" height="12" rx="1" fill="currentColor"/></symbol>
+    <symbol id="g-prev" viewBox="0 0 16 16"><path d="M3 2h2v12H3zM14 2v12L6 8z" fill="currentColor"/></symbol>
+    <symbol id="g-next" viewBox="0 0 16 16"><path d="M11 2h2v12h-2zM2 2v12l8-6z" fill="currentColor"/></symbol>
+    <symbol id="g-vol" viewBox="0 0 16 16"><path d="M2 6h3l4-3.5v11L5 10H2z" fill="currentColor"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.4a6.4 6.4 0 0 1 0 9.2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="g-note-double" viewBox="0 0 24 24">
+      <path d="M8 5.5v10.4M17 3.6V14M8 5.5 17 3.6v4L8 9.5z" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="5.2" cy="16.2" rx="3.2" ry="2.45" transform="rotate(-18 5.2 16.2)" fill="currentColor"/>
+      <ellipse cx="14.2" cy="14.3" rx="3.2" ry="2.45" transform="rotate(-18 14.2 14.3)" fill="currentColor"/>
+    </symbol>
+    <symbol id="g-up" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="g-chevron-down" viewBox="0 0 16 16"><path d="M3.5 6 8 10.5 12.5 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="g-lock" viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7.5" rx="1.5" fill="currentColor"/><path d="M5.2 7V5.2a2.8 2.8 0 0 1 5.6 0V7" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="g-arrow" viewBox="0 0 16 16"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="g-x" viewBox="0 0 10 10"><path d="M2.6 2.6l4.8 4.8M7.4 2.6 2.6 7.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="g-minus" viewBox="0 0 10 10"><path d="M2.2 5h5.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="g-plus" viewBox="0 0 10 10"><path d="M2.4 5h5.2M5 2.4v5.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="s-instagram" viewBox="0 0 16 16"><rect x="1.8" y="1.8" width="12.4" height="12.4" rx="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="2.9" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="11.6" cy="4.4" r=".9" fill="currentColor"/></symbol>
+  </svg>
+
+  <!-- ============ INTRO (pełne tylko przy 1. wejściu w sesji) ============ -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot__inner">
+      <div class="boot__logo">purra<i></i></div>
+      <div class="boot__bar"><i></i></div>
+      <div class="boot__text">loading audio...</div>
+    </div>
+  </div>
+
+  <!-- ============ TŁO ============ -->
+  <div class="desk" aria-hidden="true"></div>
+
+  <!-- ============ OKNA ============ -->
+  <div class="panels" id="panels">
+
+    <!-- ===== HOME — główne okno ===== -->
+    <section class="window win-home" data-win="home" aria-label="purra" tabindex="-1" hidden>
+      <div class="window__body home" id="home" data-v="wave">
+        <!-- fale w tle (wariant „wave”) -->
+        <canvas class="waves" id="waves" aria-hidden="true"></canvas>
+
+        <div class="home__top">
+          <span class="home__role">producer <i></i> poland</span>
+          <div class="home__right">
+            <span class="home__state"><i></i><span id="npState">ready</span></span>
+          </div>
+        </div>
+
+        <!-- WAVE: główny odtwarzacz -->
+        <section class="now" id="nowCard" aria-label="player">
+          <div class="now__row">
+            <div class="now__art" aria-hidden="true"><svg class="now__note" viewBox="0 0 24 24"><use href="#g-note-double"/></svg><i></i></div>
+            <div class="now__info">
+              <small><b id="nwNum">01</b> <span id="nwOf">/ 00</span></small>
+              <strong id="nwTrackLabel">track #01</strong>
+            </div>
+            <span class="eq now__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
+          <!-- subtelny wizualizer (bez postępu i czasu) -->
+          <canvas class="now__viz" id="nowViz" aria-hidden="true"></canvas>
+          <div class="now__ctrls">
+            <button class="sf" type="button" id="nwPrev" aria-label="previous beat"><svg><use href="#g-prev"/></svg></button>
+            <button class="sf sf--play" type="button" id="nwPlay" aria-label="play">
+              <svg class="i-play" aria-hidden="true"><use href="#g-play"/></svg><svg class="i-pause" aria-hidden="true"><use href="#g-pause"/></svg>
+            </button>
+            <button class="sf" type="button" id="nwNext" aria-label="next beat"><svg><use href="#g-next"/></svg></button>
+          </div>
+        </section>
+
+        <h1 class="biglogo" id="logo" aria-label="purra"><span class="logo__text">purra</span><span class="logo__cursor"></span></h1>
+
+        <footer class="home__foot">
+          <button class="promo" id="kitPromo" type="button" data-open="kit">
+            <span class="promo__tag">soon</span>
+            <span class="promo__text"><b id="promoTitle">stash kit</b><span id="promoTagline"></span></span>
+            <svg class="promo__arrow" aria-hidden="true"><use href="#g-arrow"/></svg>
+          </button>
+          <a class="buy buy--light" id="buyBeats" data-buy><span>buy beat</span><svg aria-hidden="true"><use href="#g-arrow"/></svg></a>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ===== ARCHIVE ===== -->
+    <section class="window win-archive" data-win="archive" aria-label="archive" tabindex="-1" hidden>
+      <header class="titlebar">
+        <div class="lights">
+          <button class="light light--close" type="button" data-action="close" aria-label="close"><svg><use href="#g-x"/></svg></button>
+          <button class="light light--min" type="button" data-action="min" aria-label="minimize"><svg><use href="#g-minus"/></svg></button>
+          <button class="light light--max" type="button" data-action="max" aria-label="zoom"><svg><use href="#g-plus"/></svg></button>
+        </div>
+        <button class="tool-btn" type="button" id="archUp" data-tip="back" aria-label="back" disabled><svg><use href="#g-up"/></svg></button>
+        <div class="titlebar__title">
+          <b id="archTitle">archive</b>
+          <small id="archStatus">0 items</small>
+        </div>
+      </header>
+      <div class="window__body">
+        <div class="arch" id="archView"></div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="window win-about" data-win="about" aria-label="about" tabindex="-1" hidden>
+      <header class="titlebar">
+        <div class="lights">
+          <button class="light light--close" type="button" data-action="close" aria-label="close"><svg><use href="#g-x"/></svg></button>
+          <button class="light light--min" type="button" data-action="min" aria-label="minimize"><svg><use href="#g-minus"/></svg></button>
+          <button class="light light--max" type="button" data-action="max" aria-label="zoom" disabled><svg><use href="#g-plus"/></svg></button>
+        </div>
+        <div class="titlebar__title"><b>about</b><small>about.txt</small></div>
+      </header>
+      <div class="window__body">
+        <div class="about">
+          <div class="about__head">
+            <figure class="about__photo about__photo--avatar" aria-label="purra photo">
+              <img src="img/about-photo.png" alt="portrait of purra wearing a fur-lined hood and dark t-shirt">
+            </figure>
+            <div><b>purra</b><small>producer · poland</small></div>
+          </div>
+          <p class="about__text">purra is a producer from poland.</p>
+          <dl class="specs">
+            <dt>based</dt><dd>poland</dd>
+            <dt>available</dt><dd>remote worldwide / studio sessions in poland</dd>
+            <dt>credits</dt><dd id="aboutCredits">—</dd>
+            <dt>status</dt><dd><i class="dot"></i>active</dd>
+          </dl>
+          <div class="about__links">
+            <a class="btn" data-link="instagram"><svg aria-hidden="true"><use href="#s-instagram"/></svg><span data-text="instagram">@purra___</span></a>
+            <button class="btn" type="button" data-open="links">links<svg aria-hidden="true"><use href="#g-arrow"/></svg></button>
+            <button class="btn btn--primary" type="button" data-open="contact">contact<svg aria-hidden="true"><use href="#g-arrow"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LINKS ===== -->
+    <section class="window win-links" data-win="links" aria-label="links" tabindex="-1" hidden>
+      <header class="titlebar">
+        <div class="lights">
+          <button class="light light--close" type="button" data-action="close" aria-label="close"><svg><use href="#g-x"/></svg></button>
+          <button class="light light--min" type="button" data-action="min" aria-label="minimize"><svg><use href="#g-minus"/></svg></button>
+          <button class="light light--max" type="button" data-action="max" aria-label="zoom" disabled><svg><use href="#g-plus"/></svg></button>
+        </div>
+        <div class="titlebar__title"><b>links</b><small>quick access</small></div>
+      </header>
+      <div class="window__body">
+        <div class="linkswin">
+          <div class="rows rows--links">
+            <div class="row">
+              <span class="row__icon" aria-hidden="true"><svg><use href="#s-instagram"/></svg></span>
+              <span class="row__text"><small>instagram</small><b data-text="instagram">@purra___</b></span>
+              <a class="btn btn--sm" data-link="instagram">open<svg aria-hidden="true"><use href="#g-arrow"/></svg></a>
+            </div>
+            <div class="row" data-link-row="beatstars">
+              <span class="row__icon" aria-hidden="true"><svg><use href="#n-beats"/></svg></span>
+              <span class="row__text"><small>beatstars</small><b data-text="beatstars">—</b></span>
+              <a class="btn btn--sm" data-link="beatstars">open<svg aria-hidden="true"><use href="#g-arrow"/></svg></a>
+            </div>
+            <div class="row" data-link-row="youtube">
+              <span class="row__icon" aria-hidden="true"><svg><use href="#g-play"/></svg></span>
+              <span class="row__text"><small>youtube</small><b data-text="youtube">—</b></span>
+              <a class="btn btn--sm" data-link="youtube">open<svg aria-hidden="true"><use href="#g-arrow"/></svg></a>
+            </div>
+            <div class="row">
+              <span class="row__icon" aria-hidden="true"><svg><use href="#n-contact"/></svg></span>
+              <span class="row__text"><small>email</small><b data-text="email">—</b></span>
+              <button class="btn btn--sm" type="button" id="copyEmailLinks">copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="window win-contact" data-win="contact" aria-label="contact" tabindex="-1" hidden>
+      <header class="titlebar">
+        <div class="lights">
+          <button class="light light--close" type="button" data-action="close" aria-label="close"><svg><use href="#g-x"/></svg></button>
+          <button class="light light--min" type="button" data-action="min" aria-label="minimize"><svg><use href="#g-minus"/></svg></button>
+          <button class="light light--max" type="button" data-action="max" aria-label="zoom" disabled><svg><use href="#g-plus"/></svg></button>
+        </div>
+        <div class="titlebar__title"><b>contact</b><small>inbox open</small></div>
+      </header>
+      <div class="window__body">
+        <div class="contact">
+          <!-- Dane kontaktowe uzupełniają się automatycznie z CONFIG w script.js -->
+          <a class="cta-big" data-link="send">
+            <span class="cta-big__text"><b>send beats / collab</b><small>opens your mail app</small></span>
+            <i class="cta-big__arrow" aria-hidden="true"><svg><use href="#g-arrow"/></svg></i>
+          </a>
+          <div class="rows">
+            <div class="row">
+              <span class="row__icon" aria-hidden="true"><svg><use href="#s-instagram"/></svg></span>
+              <span class="row__text"><small>instagram</small><b data-text="instagram">@purra___</b></span>
+              <a class="btn btn--sm" data-link="instagram">open<svg aria-hidden="true"><use href="#g-arrow"/></svg></a>
+            </div>
+            <div class="row">
+              <span class="row__icon" aria-hidden="true"><svg><use href="#n-contact"/></svg></span>
+              <span class="row__text"><small>email</small><b data-text="email">—</b></span>
+              <button class="btn btn--sm" type="button" id="copyEmail">copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DRUM KIT (dane w KIT w script.js) ===== -->
+    <section class="window win-kit" data-win="kit" aria-label="drum kit" tabindex="-1" hidden>
+      <header class="titlebar">
+        <div class="lights">
+          <button class="light light--close" type="button" data-action="close" aria-label="close"><svg><use href="#g-x"/></svg></button>
+          <button class="light light--min" type="button" data-action="min" aria-label="minimize"><svg><use href="#g-minus"/></svg></button>
+          <button class="light light--max" type="button" data-action="max" aria-label="zoom" disabled><svg><use href="#g-plus"/></svg></button>
+        </div>
+        <div class="titlebar__title"><b id="kitWinTitle">stash kit</b><small>drum kit</small></div>
+      </header>
+      <div class="window__body">
+        <div class="kit">
+          <div class="kit__art" aria-hidden="true">
+            <span class="kit__art-grid"></span>
+            <b class="kit__art-word" id="kitArtWord">stash</b>
+            <span class="kit__art-sub">kit</span>
+            <span class="kit__art-year" id="kitArtTag"></span>
+            <span class="kit__art-dot"></span>
+          </div>
+          <div class="kit__info">
+            <span class="feat__tag"><i class="dot"></i>drum kit</span>
+            <h2 class="kit__title" id="kitTitle">stash kit</h2>
+            <p class="kit__tagline" id="kitTagline"></p>
+            <ul class="kit__list" id="kitList" hidden></ul>
+            <div class="kit__actions">
+              <a class="buy buy--lg" id="kitGet" data-kit><span>coming soon</span><svg aria-hidden="true"><use href="#g-arrow"/></svg></a>
+              <span class="kit__price" id="kitPrice"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============ FLOATING PLAYER (ten sam system audio) ============ -->
+  <div class="mini" id="mini" hidden>
+    <div class="mini__transport" aria-label="track controls">
+      <button class="mini__btn mini__prev" type="button" id="miniPrev" aria-label="previous beat"><svg><use href="#g-prev"/></svg></button>
+      <button class="mini__play" type="button" id="miniPlay" aria-label="play">
+        <svg class="i-play" aria-hidden="true"><use href="#g-play"/></svg><svg class="i-pause" aria-hidden="true"><use href="#g-pause"/></svg>
+      </button>
+      <button class="mini__btn mini__next" type="button" id="miniNext" aria-label="next beat"><svg><use href="#g-next"/></svg></button>
+    </div>
+    <span class="mini__num" id="miniNum">track #01</span>
+    <button class="mini__hide" type="button" id="miniHide" aria-label="hide player"><svg><use href="#g-chevron-down"/></svg></button>
+  </div>
+  <button class="mini-restore" type="button" id="miniRestore" aria-label="show player" hidden>
+    <svg aria-hidden="true"><use href="#g-note-double"/></svg>
+  </button>
+
+  <!-- ============ DOCK — nawigacja ============ -->
+  <nav class="dock" id="dock" aria-label="navigation">
+    <button class="dock__item" type="button" data-open="home"><svg aria-hidden="true"><use href="#n-home"/></svg><span>home</span></button>
+    <button class="dock__item" id="kitDock" type="button" data-open="kit"><svg aria-hidden="true"><use href="#n-kit"/></svg><span>kit</span></button>
+    <button class="dock__item" type="button" data-open="archive"><svg aria-hidden="true"><use href="#n-archive"/></svg><span>archive</span></button>
+    <button class="dock__item" type="button" data-open="about"><svg aria-hidden="true"><use href="#n-about"/></svg><span>about</span></button>
+    <button class="dock__item" type="button" data-open="contact"><svg aria-hidden="true"><use href="#n-contact"/></svg><span>contact</span></button>
+    <i class="dock__sep" aria-hidden="true"></i>
+    <a class="dock__item dock__item--icon" data-link="instagram" data-tip="instagram" aria-label="instagram"><svg aria-hidden="true"><use href="#s-instagram"/></svg></a>
+    <button class="dock__item dock__item--icon" type="button" id="sfxBtn" data-tip="sounds: off" aria-label="interface sounds" aria-pressed="false">
+      <svg class="i-sfx-on" aria-hidden="true"><use href="#n-sound"/></svg><svg class="i-sfx-off" aria-hidden="true"><use href="#n-sound-off"/></svg>
+    </button>
+  </nav>
+
+  <!-- ============ SYSTEM: alert, powiadomienia, tooltip ============ -->
+  <div class="dialog" id="dialog" hidden>
+    <div class="alert" role="alertdialog" aria-labelledby="dialogTitle" aria-describedby="dialogMsg">
+      <b class="alert__title" id="dialogTitle">purra</b>
+      <p class="alert__msg" id="dialogMsg"></p>
+      <button class="alert__ok" type="button" id="dialogOk">ok</button>
+    </div>
+  </div>
+
+  <!-- kod dostępu do archive → ??? (kod ustawiasz w SECRET w script.js) -->
+  <div class="dialog" id="codeDialog" hidden>
+    <form class="alert alert--code" id="codeForm" autocomplete="off">
+      <span class="sysicon" aria-hidden="true">?</span>
+      <b class="alert__title">enter access code</b>
+      <p class="alert__msg" id="codeMsg">purra : archive : ???</p>
+      <input class="code-input" id="codeInput" type="password" maxlength="24" placeholder="••••" aria-label="access code" spellcheck="false">
+      <div class="alert__btns">
+        <button class="btn" type="button" id="codeCancel">cancel</button>
+        <button class="btn btn--primary" type="submit">unlock</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="notifs" id="notifs" aria-live="polite"></div>
+  <div class="tooltip" id="tooltip" role="tooltip"></div>
+  <div class="crt" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
